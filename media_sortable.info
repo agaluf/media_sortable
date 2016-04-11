@@ -1,0 +1,9 @@
+name = Media Sortable
+description = Provides a Sortable field widget for Media.
+package = Media
+core = 7.x
+
+configure = admin/config/media/sortable
+
+dependencies[] = media
+dependencies[] = jquery_update

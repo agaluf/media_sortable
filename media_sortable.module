@@ -1,0 +1,26 @@
+<?php
+
+// Load the separate files
+require_once drupal_get_path('module', 'media_sortable') . '/includes/media_sortable.fields.inc';
+
+
+/**
+ * Implements hook_theme().
+ */
+function media_sortable_theme() {
+  return array(
+    // media_sortable.field.inc.
+    'media_sortable_widget_multiple' => array(
+      'render element' => 'element',
+    ),
+  );
+}
+
+
+function media_sortable_media_field_widget_submitted_values_alter(&$values) {
+
+  if(isset($values[1]) && $values[1]['_weight'] !== '1') {
+    krsort($values);
+  }
+
+}
